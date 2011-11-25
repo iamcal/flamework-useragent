@@ -46,6 +46,38 @@
 		}
 
 
+		#
+		# OS matching needs to do some regex transformations
+		#
+
+		$os = array(
+			'windows nt 5.1'		=> array('windows', 'xp'),
+			'windows nt 5.2'		=> array('windows', 'xp x64'),
+			'windows nt 6.1'		=> array('windows', '7'),
+		);
+
+		$out['os']		= null;
+		$out['os_version']	= null;
+
+		foreach ($os as $k => $v){
+			if (strpos($ua, $k) !== false){
+				$out['os'] = $v[0];
+				$out['os_version'] = $v[1];
+				break;
+			}
+		}
+
+		if (is_null($out['os'])){
+			do {
+				if (preg_match('!mac os x (\d+)_(\d+)_(\d+)!', $ua, $m)){
+					$out['os'] = 'osx';
+					$out['os_version'] = "$m[1].$m[2].$m[3]";
+					break;
+				}
+
+			} while (0);
+		}
+
 		return $out;
 	}
 
