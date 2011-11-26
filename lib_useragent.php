@@ -21,6 +21,7 @@
 			'webkit',
 			'gecko',
 			'trident',
+			'presto',
 		);
 
 		$ua = StrToLower($ua);
@@ -39,8 +40,11 @@
 		# safari does something super annoying, putting the version in the
 		# wrong place like: "Version/5.0.1 Safari/533.17.8"
 		#
+		# opera does the same thing:
+		# http://dev.opera.com/articles/view/opera-ua-string-changes/
+		#
 
-		if ($out['agent'] == 'safari'){
+		if ($out['agent'] == 'safari' || $out['agent'] == 'opera'){
 			$temp = useragent_match($ua, array('version'));
 			if ($temp['token']) $out['agent_version'] = $temp['version'];
 		}
