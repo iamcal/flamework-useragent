@@ -32,36 +32,98 @@ Mozilla/5.0 (Windows NT 6.0; rv:8.0) Gecko/20100101 Firefox/8.0
 	firefox/8.0 gecko/20100101 windows/vista
 
 Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; WOW64; Trident/5.0)
+	msie/9.0 trident/5.0 windows/7
+
 Mozilla/5.0 (Windows NT 6.1; WOW64; rv:7.0.1) Gecko/20100101 Firefox/7.0.1
+	firefox/7.0.1 gecko/20100101 windows/7
+
 Mozilla/5.0 (Macintosh; Intel Mac OS X 10_6_8) AppleWebKit/535.2 (KHTML, like Gecko) Chrome/15.0.874.121 Safari/535.2
+	chrome/15.0.874.121 webkit/535.2 osx/10.6.8
+
 Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_2) AppleWebKit/534.51.22 (KHTML, like Gecko) Version/5.1.1 Safari/534.51.22
+	safari/5.1.1 webkit/534.51.22 osx/10.7.2
+
 Mozilla/5.0 (Windows NT 6.1; rv:8.0) Gecko/20100101 Firefox/8.0
+	firefox/8.0 gecko/20100101 windows/7
+
 Mozilla/5.0 (Macintosh; Intel Mac OS X 10_6_8) AppleWebKit/535.2 (KHTML, like Gecko) Chrome/15.0.874.120 Safari/535.2
+	chrome/15.0.874.120 webkit/535.2 osx/10.6.8
+
 Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_2) AppleWebKit/535.2 (KHTML, like Gecko) Chrome/15.0.874.121 Safari/535.2
+	chrome/15.0.874.121 webkit/535.2 osx/10.7.2
+
 Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_2) AppleWebKit/535.2 (KHTML, like Gecko) Chrome/15.0.874.120 Safari/535.2
+	chrome/15.0.874.120 webkit/535.2 osx/10.7.2
+
 Mozilla/5.0 (Windows NT 5.1) AppleWebKit/535.2 (KHTML, like Gecko) Chrome/15.0.874.121 Safari/535.2
+	chrome/15.0.874.121 webkit/535.2 windows/xp
+
 Mozilla/5.0 (Macintosh; Intel Mac OS X 10.6; rv:8.0) Gecko/20100101 Firefox/8.0
+	firefox/8.0 gecko/20100101 osx/10.6
+
 Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/535.2 (KHTML, like Gecko) Chrome/15.0.874.106 Safari/535.2
+	chrome/15.0.874.106 webkit/535.2 windows/7
+
 Mozilla/5.0 (Windows NT 5.1; rv:7.0.1) Gecko/20100101 Firefox/7.0.1
+	firefox/7.0.1 gecko/20100101 windows/xp
+
 Mozilla/5.0 (Windows NT 6.0; WOW64) AppleWebKit/535.2 (KHTML, like Gecko) Chrome/15.0.874.120 Safari/535.2
+	chrome/15.0.874.120 webkit/535.2 windows/vista
+
 Mozilla/5.0 (Windows NT 6.1) AppleWebKit/535.2 (KHTML, like Gecko) Chrome/15.0.874.121 Safari/535.2
+	chrome/15.0.874.121 webkit/535.2 windows/7
+
 Mozilla/5.0 (Windows NT 6.0; WOW64; rv:8.0) Gecko/20100101 Firefox/8.0
+	firefox/8.0 gecko/20100101 windows/vista
+
 Mozilla/5.0 (Windows NT 6.0) AppleWebKit/535.2 (KHTML, like Gecko) Chrome/15.0.874.121 Safari/535.2
+	chrome/15.0.874.121 webkit/535.2 windows/vista
+
 Mozilla/5.0 (Macintosh; Intel Mac OS X 10_5_8) AppleWebKit/535.2 (KHTML, like Gecko) Chrome/15.0.874.121 Safari/535.2
+	chrome/15.0.874.121 webkit/535.2 osx/10.5.8
+
 Mozilla/5.0 (Macintosh; Intel Mac OS X 10.7; rv:8.0) Gecko/20100101 Firefox/8.0
+	firefox/8.0 gecko/20100101 osx/10.7
+
 Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/535.7 (KHTML, like Gecko) Chrome/16.0.912.41 Safari/535.7
+	chrome/16.0.912.41 webkit/535.7 windows/7
+
 Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.0; Trident/5.0)
+	msie/9.0 trident/5.0 windows/vista
+
 Mozilla/5.0 (Macintosh; Intel Mac OS X 10.6; rv:7.0.1) Gecko/20100101 Firefox/7.0.1
+	firefox/7.0.1 gecko/20100101 osx/10.6
+
 Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)
+	-
+
 Mozilla/5.0 (Macintosh; Intel Mac OS X 10_5_8) AppleWebKit/534.50.2 (KHTML, like Gecko) Version/5.0.6 Safari/533.22.3
+	safari/5.0.6 webkit/534.50.2 osx/10.5.8
+
 Mozilla/5.0 (Windows NT 6.1; rv:7.0.1) Gecko/20100101 Firefox/7.0.1
+	firefox/7.0.1 gecko/20100101 windows/7
+
 Mozilla/5.0 (X11; Linux i686; rv:7.0.1) Gecko/20100101 Firefox/7.0.1
+	firefox/7.0.1 gecko/20100101 linux/i686
+
 Mozilla/5.0 (Macintosh; Intel Mac OS X 10.7; rv:7.0.1) Gecko/20100101 Firefox/7.0.1
+	firefox/7.0.1 gecko/20100101 osx/10.7
+
 -
+	-
+
 Python-urllib/2.6
+	-
+
 Mozilla/5.0 (Windows; U; Windows NT 6.1; en-US; rv:1.9.2.24) Gecko/20111103 Firefox/3.6.24
+	firefox/3.6.24 gecko/20111103 windows/7
+
 Mozilla/5.0 (Macintosh; Intel Mac OS X 10.5; rv:7.0.1) Gecko/20100101 Firefox/7.0.1
+	firefox/7.0.1 gecko/20100101 osx/10.5
+
 Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)
+	msie/9.0 trident/5.0 windows/7
+
 Mozilla/5.0 (Windows NT 6.0; rv:7.0.1) Gecko/20100101 Firefox/7.0.1
 Mozilla/5.0 (Macintosh; Intel Mac OS X 10_6_8) AppleWebKit/534.50 (KHTML, like Gecko) Version/5.1 Safari/534.50
 Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_8; en-us) AppleWebKit/533.21.1 (KHTML, like Gecko) Version/5.0.5 Safari/533.21.1

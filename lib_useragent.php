@@ -55,6 +55,7 @@
 			'windows nt 5.2'		=> array('windows', 'xp x64'),
 			'windows nt 6.0'		=> array('windows', 'vista'),
 			'windows nt 6.1'		=> array('windows', '7'),
+			'linux i686'			=> array('linux', 'i686'),
 		);
 
 		$out['os']		= null;
@@ -70,9 +71,10 @@
 
 		if (is_null($out['os'])){
 			do {
-				if (preg_match('!mac os x (\d+)_(\d+)_(\d+)!', $ua, $m)){
+				if (preg_match('!mac os x (\d+)[._](\d+)([._](\d+))?!', $ua, $m)){
 					$out['os'] = 'osx';
-					$out['os_version'] = "$m[1].$m[2].$m[3]";
+					$out['os_version'] = "$m[1].$m[2]";
+					if ($m[4]) $out['os_version'] .= ".$m[4]";
 					break;
 				}
 
