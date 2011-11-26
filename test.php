@@ -21,6 +21,7 @@
 	$show_passes = false;
 
 	process_tests_file('tests/top-2011-11-19.tests');
+	process_tests_file('tests/mobile.tests');
 	summary();
 
 	# lower the cache size so we can test cache eviction
@@ -48,7 +49,11 @@
 
 		global $ua, $num_skipped;
 
-		if (preg_match('!^\t!', $line)){
+		if (preg_match('!^#!', $line)){
+
+			return;
+
+		}else if (preg_match('!^\t!', $line)){
 
 			$line = trim($line);
 
