@@ -13,12 +13,12 @@ Usage:
 
     # return structure
     $ret = array(
-      'agent'		=> 'chrome',
-      'agent_version'	=> '15.0.874.121',
-      'engine'		=> 'webkit',
-      'engine_version'	=> '535.2',
-      'os'		=> 'osx',
-      'os_version'	=> '10.7.2',
+      'agent'          => 'chrome',
+      'agent_version'  => '15.0.874.121',
+      'engine'         => 'webkit',
+      'engine_version' => '535.2',
+      'os'             => 'osx',
+      'os_version'     => '10.7.2',
     );
 
 
@@ -65,7 +65,7 @@ When a field does not match one of the known values, it will be set to null.
 Caveats
 -------
 
-* Not all browsers, rendering engines and platforms are supported - this is by design! Only common ones.
-* We just return 'linux/i686' rather than e.g. 'Ubuntu', since most linux falvors don't give distro, plus nobody cares.
-* Chromium returns 'chrome' - same thing anyway, plus it has a different version number.
-* We differentiate iPad, iPhone and iPod, even though they are the same OS. You can patch this if you don't need to know.
+* Not all browsers, rendering engines and platforms are supported - this is by design! Only common agents are included.
+* We just return <code>"linux/i686"</code> rather than e.g. <code>"Ubuntu"</code>, since most Linux flavors don't give distro, plus nobody cares.
+* Chromium returns <code>"chrome"</code> - same thing anyway, plus it has a different version number.
+* We differentiate iPad, iPhone and iPod, even though they are the same OS. You can easily patch this locally if you don't need to know.
