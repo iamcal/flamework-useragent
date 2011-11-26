@@ -53,6 +53,7 @@
 		$os = array(
 			'windows nt 5.1'		=> array('windows', 'xp'),
 			'windows nt 5.2'		=> array('windows', 'xp x64'),
+			'windows nt 6.0'		=> array('windows', 'vista'),
 			'windows nt 6.1'		=> array('windows', '7'),
 		);
 
