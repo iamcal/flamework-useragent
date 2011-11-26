@@ -13,7 +13,7 @@
 	include('lib_useragent.php');
 
 
-	$test_file = 'top-2011-11-19';
+	$test_file = 'tests/top-2011-11-19';
 
 	$i = 1;
 	$ua = null;
