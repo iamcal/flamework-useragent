@@ -113,4 +113,63 @@
 			'version'	=> null,
 		);
 	}
+
+
+	$GLOBALS['_useragent_cache'] = array();
+	$GLOBALS['_useragent_cache_max'] = 10000; # optimal cache size. when it gets 20% above this, we compact it
+
+	function useragent_decode_cached($ua){
+
+		#
+		# cache hit
+		#
+
+		if ($GLOBALS['_useragent_cache'][$ua]){
+			$GLOBALS['_useragent_cache'][$ua][1]++;
+			return $GLOBALS['_useragent_cache'][$ua][0];
+		}
+
+		#
+		# miss
+		#
+
+		$ret = useragent_decode($ua);
+		$GLOBALS['_useragent_cache'][$ua] = array($ret, 1, 0);
+
+		$compact_size = 1.2 * $GLOBALS['_useragent_cache_max'];
+		if (count($GLOBALS['_useragent_cache']) >= $compact_size){
+
+			#echo "compacting cache, since count is ".count($GLOBALS['_useragent_cache'])."\n";
+
+			#
+			# sort cache by hits-this, hits-prev DESC
+			#
+
+			uasort($GLOBALS['_useragent_cache'], '_useragent_sort_cache');
+
+			#print_r($GLOBALS['_useragent_cache']);
+
+
+			#
+			# trim
+			#
+
+			$GLOBALS['_useragent_cache'] = array_slice($GLOBALS['_useragent_cache'], 0, $GLOBALS['_useragent_cache_max']);
+
+			foreach ($GLOBALS['_useragent_cache'] as &$row){
+				$row[2] += $row[1];
+				$row[1] = 0;
+			}
+
+			#print_r($GLOBALS['_useragent_cache']);
+			#exit;
+		}
+
+		return $ret;
+	}
+
+	function _useragent_sort_cache($a, $b){
+		if ($a[1] == $b[1]) return $b[2] - $a[2];
+		return $b[1] - $a[1];
+	}
 ?>

@@ -23,6 +23,8 @@
 	process_tests_file('tests/top-2011-11-19.tests');
 	summary();
 
+	# lower the cache size so we can test cache eviction
+	$GLOBALS['_useragent_cache_max'] = 100;
 	process_agents_file('tests/first10k-2011-11-19.agents');
 
 
@@ -170,7 +172,7 @@
 			$line = trim($line);
 			if (strlen($line)){
 
-				$ret = useragent_decode($line);
+				$ret = useragent_decode_cached($line);
 
 				foreach ($keys as $key){
 					$map[$key][$ret[$key].'/'.$ret[$key.'_version']]++;
