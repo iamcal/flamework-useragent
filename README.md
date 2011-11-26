@@ -65,3 +65,4 @@ Caveats
 * Not all browsers, rendering engines and platforms are supported - this is by design! Only common ones.
 * We just return 'linux/i686' rather than e.g. 'Ubuntu', since most linux falvors don't give distro, plus nobody cares.
 * Chromium returns 'chrome' - same thing anyway, plus it has a different version number.
+* We differentiate iPad, iPhone and iPod, even though they are the same OS. You can patch this if you don't need to know.
