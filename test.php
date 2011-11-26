@@ -17,6 +17,9 @@
 
 	$i = 1;
 	$ua = null;
+	$num_skipped = 0;
+	$passed = 0;
+	$total = 0;
 
 
 	#
@@ -38,7 +41,7 @@
 
 	function process_line($line){
 
-		global $ua;
+		global $ua, $num_skipped;
 
 		if (preg_match('!^\t!', $line)){
 
@@ -55,6 +58,8 @@
 
 			$ua = null;
 		}else{
+			if ($ua) $num_skipped++;
+
 			$line = trim($line);
 			if (strlen($line)){
 				$ua = $line;
@@ -66,7 +71,7 @@
 
 	function run_test($ua, $parts){
 
-		global $i;
+		global $i, $passed, $total;
 
 		#echo "target: $ua\n";
 		#echo "match: ";
@@ -86,7 +91,24 @@
 
 			foreach ($map as $k => $fields){
 
-				if ($parts[$k]){
+				if ($parts[$k] == '-'){
+
+					if (!is_null($ret[$fields[0]])){
+						echo "$i not ok\n";
+						echo "# $ua\n";
+						echo "# expecting blank $fields[0], got {$ret[$fields[0]]}\n";
+						break 2;
+					}
+
+					if (!is_null($ret[$fields[1]])){
+						echo "$i not ok\n";
+						echo "# $ua\n";
+						echo "# expecting blank $fields[1], got {$ret[$fields[1]]}\n";
+						break 2;
+					}
+
+				}else if ($parts[$k]){
+
 					list($a, $b) = explode('/', $parts[$k]);
 
 					if ($ret[$fields[0]] != $a){
@@ -106,8 +128,16 @@
 
 			echo "$i ok\n";
 			#print_r($ret);
+			$passed++;
 
 		} while (0);
 
 		$i++;
+		$total++;
 	}
+
+	echo "\n";
+	if ($num_skipped){
+		echo "skipped $num_skipped agents - no results defined\n";
+	}
+	echo "passed $passed of $total tests\n";
