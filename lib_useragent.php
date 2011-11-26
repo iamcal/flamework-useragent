@@ -60,6 +60,7 @@
 			'windows nt 6.0'		=> array('windows', 'vista'),
 			'windows nt 6.1'		=> array('windows', '7'),
 			'linux i686'			=> array('linux', 'i686'),
+			'linux x86_64'			=> array('linux', 'x86_64'),
 		);
 
 		$out['os']		= null;
