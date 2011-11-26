@@ -13,8 +13,6 @@
 	include('lib_useragent.php');
 
 
-	$test_file = 'tests/top-2011-11-19';
-
 	$i = 1;
 	$ua = null;
 	$num_skipped = 0;
@@ -22,23 +20,27 @@
 	$total = 0;
 	$show_passes = false;
 
+	process_tests_file('tests/top-2011-11-19.tests');
+	summary();
 
-	#
-	# file reader
-	#
+	process_agents_file('tests/first10k-2011-11-19.agents');
 
-	$fh = fopen($test_file, 'r');
-	if (!$fh) exit;
-	while (($line = fgets($fh, 4096)) !== false){
-		process_line($line);
+
+	function process_tests_file($test_file){
+
+		echo "Processing tests from $test_file\n";
+
+		$fh = fopen($test_file, 'r');
+		if (!$fh) exit;
+		while (($line = fgets($fh, 4096)) !== false){
+			process_line($line);
+		}
+		if (!feof($fh)){
+			echo "Error: unexpected fgets() fail\n";
+			exit;
+		}
+		fclose($fh);
 	}
-	if (!feof($fh)){
-		echo "Error: unexpected fgets() fail\n";
-		exit;
-	}
-	fclose($fh);
-
-
 
 	function process_line($line){
 
@@ -140,8 +142,55 @@
 		$total++;
 	}
 
-	echo "\n";
-	if ($num_skipped){
-		echo "skipped $num_skipped agents - no results defined\n";
+	function summary(){
+
+		global $num_skipped, $passed, $total;
+
+		echo "\n";
+		if ($num_skipped){
+			echo "skipped $num_skipped agents - no results defined\n";
+		}
+		$per = round(1000 * $passed / $total) / 10;
+		echo "Passed $passed of $total tests - $per%\n";
+		echo "\n";
 	}
-	echo "passed $passed of $total tests\n";
+
+
+	function process_agents_file($test_file){
+
+		echo "Processing agents from $test_file\n";
+
+		$keys = array('agent', 'engine', 'os');
+		$map = array();
+
+		$fh = fopen($test_file, 'r');
+		if (!$fh) exit;
+		while (($line = fgets($fh, 4096)) !== false){
+		
+			$line = trim($line);
+			if (strlen($line)){
+
+				$ret = useragent_decode($line);
+
+				foreach ($keys as $key){
+					$map[$key][$ret[$key].'/'.$ret[$key.'_version']]++;
+				}
+			}
+		}
+		if (!feof($fh)){
+			echo "Error: unexpected fgets() fail\n";
+			exit;
+		}
+		fclose($fh);
+
+		foreach ($keys as $key){
+			$num = count($map[$key]);
+			asort($map[$key]);
+			$top = array_pop(array_keys($map[$key]));
+
+			echo " - $num unique $key values (top: $top)\n";
+		}
+		echo "\n";
+
+		#print_r($map);
+	}
