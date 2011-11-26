@@ -20,6 +20,7 @@
 	$num_skipped = 0;
 	$passed = 0;
 	$total = 0;
+	$show_passes = false;
 
 
 	#
@@ -126,8 +127,11 @@
 				}
 			}
 
-			echo "$i ok\n";
-			#print_r($ret);
+			if ($GLOBALS['show_passes']){
+				echo "$i ok\n";
+				#print_r($ret);
+			}
+
 			$passed++;
 
 		} while (0);
