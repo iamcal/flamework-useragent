@@ -61,6 +61,9 @@
 			'windows nt 6.1'		=> array('windows', '7'),
 			'linux i686'			=> array('linux', 'i686'),
 			'linux x86_64'			=> array('linux', 'x86_64'),
+			'(ipad; '			=> array('ipad', ''),
+			'(ipod; '			=> array('ipod', ''),
+			'(iphone; '			=> array('iphone', ''),
 		);
 
 		$out['os']		= null;
@@ -74,16 +77,20 @@
 			}
 		}
 
-		if (is_null($out['os'])){
-			do {
-				if (preg_match('!mac os x (\d+)[._](\d+)([._](\d+))?!', $ua, $m)){
-					$out['os'] = 'osx';
-					$out['os_version'] = "$m[1].$m[2]";
-					if ($m[4]) $out['os_version'] .= ".$m[4]";
-					break;
-				}
+		if (in_array($out['os'], array('iphone', 'ipad', 'ipod'))){
 
-			} while (0);
+			if (preg_match('!os (\d+)[._](\d+)([._](\d+))? like mac os x!', $ua, $m)){
+				$out['os_version'] = "$m[1].$m[2]";
+				if ($m[4]) $out['os_version'] .= ".$m[4]";
+			}
+		}
+
+		if (is_null($out['os'])){
+			if (preg_match('!mac os x (\d+)[._](\d+)([._](\d+))?!', $ua, $m)){
+				$out['os'] = 'osx';
+				$out['os_version'] = "$m[1].$m[2]";
+				if ($m[4]) $out['os_version'] .= ".$m[4]";
+			}
 		}
 
 		return $out;
