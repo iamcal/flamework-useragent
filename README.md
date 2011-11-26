@@ -30,25 +30,33 @@ Possible values
 * safari
 * firefox
 * msie
+* dalvik (android VM, not actually the browser)
 * opera
 * netscape
 * konqueror
+* blackberry (pre-safari)
 
-<code>engine</code> contains the rendering engine,  with the full version number in <code>engine_version</code>::
+<code>engine</code> contains the rendering engine,  with the full version number in <code>engine_version</code>:
 * webkit
 * gecko
 * trident
 * presto
 
 <code>os</code> and <code>os_version</code> contain the platform, with the following values:
-* osx/n.n
-* osx/n.n.n
+* osx/n.n(.n)
+* iphone/n.n(.n)
+* ipad/n.n(.n)
+* ipod/n.n(.n)
 * windows/xp
 * windows/xp-x64
 * windows/vista
 * windows/7
 * linux/i686
 * linux/x86_64
+* android/n.n(.n)
+* blackberry/$model
+
+When a field does not match one of the known values, it will be set to null.
 
 
 Caveats

@@ -15,6 +15,8 @@
 			'netscape',
 			'opera',
 			'msie',
+			'dalvik',
+			'blackberry',
 		);
 
 		$engines = array(
@@ -49,6 +51,12 @@
 			if ($temp['token']) $out['agent_version'] = $temp['version'];
 		}
 
+		if ($out['agent'] == 'blackberry' && !$out['agent_version']){
+			if (preg_match('!blackberry(\d+)/(\S+)!', $ua, $m)){
+				$out['agent_version'] = $m[2];
+			}
+		}
+
 
 		#
 		# OS matching needs to do some regex transformations
@@ -59,11 +67,13 @@
 			'windows nt 5.2'		=> array('windows', 'xp-x64'),
 			'windows nt 6.0'		=> array('windows', 'vista'),
 			'windows nt 6.1'		=> array('windows', '7'),
+			'android'			=> array('android', ''),
 			'linux i686'			=> array('linux', 'i686'),
 			'linux x86_64'			=> array('linux', 'x86_64'),
 			'(ipad; '			=> array('ipad', ''),
 			'(ipod; '			=> array('ipod', ''),
 			'(iphone; '			=> array('iphone', ''),
+			'blackberry'			=> array('blackberry', ''),
 		);
 
 		$out['os']		= null;
@@ -85,6 +95,21 @@
 			}
 		}
 
+		if ($out['os'] == 'android'){
+
+			if (preg_match('!android (\d+)\.(\d+)(\.(\d+))?!', $ua, $m)){
+				$out['os_version'] = "$m[1].$m[2]";
+				if ($m[4]) $out['os_version'] .= ".$m[4]";
+			}
+		}
+
+		if ($out['os'] == 'blackberry'){
+
+			if (preg_match('!blackberry ?(\d+)!', $ua, $m)){
+				$out['os_version'] = $m[1];
+			}
+		}
+
 		if (is_null($out['os'])){
 			if (preg_match('!mac os x (\d+)[._](\d+)([._](\d+))?!', $ua, $m)){
 				$out['os'] = 'osx';
@@ -100,7 +125,7 @@
 
 		foreach ($tokens as $token){
 
-			if (preg_match("!{$token}[/ ]([0-9.]+)!", $ua, $m)){
+			if (preg_match("!{$token}[/ ]([0-9.]+\+?)!", $ua, $m)){
 				return array(
 					'token'		=> $token,
 					'version'	=> $m[1],
