@@ -67,6 +67,8 @@
 			'windows nt 5.2'		=> array('windows', 'xp-x64'),
 			'windows nt 6.0'		=> array('windows', 'vista'),
 			'windows nt 6.1'		=> array('windows', '7'),
+			'windows nt 6.2'		=> array('windows', '8'),
+			'windows nt 6.3'		=> array('windows', '8.1'),
 			'android'			=> array('android', ''),
 			'linux i686'			=> array('linux', 'i686'),
 			'linux x86_64'			=> array('linux', 'x86_64'),
