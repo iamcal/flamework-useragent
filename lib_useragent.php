@@ -1,4 +1,4 @@
-<?
+<?php
 	function useragent_decode($ua){
 
 		#

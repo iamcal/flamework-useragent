@@ -1,4 +1,4 @@
-<?
+<?php
 	#
 	# to get common referers from an access log:
 	# cat log | awk -F'(" "| "|" )' '{print $5}' | sort | uniq -c | sort -nr
